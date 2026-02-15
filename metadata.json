@@ -1,0 +1,8 @@
+
+{
+  "name": "RBLX Profile Clone",
+  "description": "A pixel-perfect recreation of the RBLX profile page as shown in the reference image, featuring a dark mode UI, integrated chat, and an age verification gateway.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

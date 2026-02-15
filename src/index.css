@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  --color-magenta: #D24C8F;
+  --color-pink-purple: #B14A9A;
+  --color-violet: #8A4AA6;
+  --color-deep-purple: #5A3E8E;
+  --color-indigo-edge: #3C2F63;
+  --color-surface: #1a1025;
+  --color-surface-light: #261838;
+  --color-surface-card: #2a1d3e;
+  --color-surface-hover: #352750;
+  --color-border-glow: rgba(138, 74, 166, 0.3);
+  --color-text-primary: #F4F4F6;
+  --color-text-secondary: #a99bbe;
+  --color-text-muted: #7a6b8f;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-danger: #ef4444;
+  --color-sky-accent: #7CC6D9;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-violet);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(42, 29, 62, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(138, 74, 166, 0.15);
+  }
+
+  .glass-strong {
+    background: rgba(42, 29, 62, 0.85);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(138, 74, 166, 0.25);
+  }
+
+  .gradient-brand {
+    background: linear-gradient(135deg, #D24C8F, #B14A9A, #8A4AA6, #5A3E8E, #3C2F63);
+  }
+
+  .gradient-brand-text {
+    background: linear-gradient(135deg, #D24C8F, #8A4AA6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-magenta {
+    box-shadow: 0 0 20px rgba(210, 76, 143, 0.3), 0 0 60px rgba(210, 76, 143, 0.1);
+  }
+
+  .glow-violet {
+    box-shadow: 0 0 20px rgba(138, 74, 166, 0.3), 0 0 60px rgba(138, 74, 166, 0.1);
+  }
+
+  .glow-danger {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3), 0 0 60px rgba(239, 68, 68, 0.1);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.4s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(138, 74, 166, 0.3);
+    border-radius: 3px;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
